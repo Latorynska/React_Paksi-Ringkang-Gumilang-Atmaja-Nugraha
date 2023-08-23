@@ -1,142 +1,35 @@
 <!DOCTYPE html>
 <head>
     <title>Document</title>
-    <style>
-        body{
-            margin: 0;
-        }
-        nav{
-            box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.20);
-            width: 100%;
-            padding: 5px;
-            padding-left: 20px;
-        }
-        #hero{
-            width: 80%;
-            margin: auto;
-            font-family: 'Times New Roman', Times, serif;
-        }
-        .hero-text{
-            width: 615px;
-        }
-        .hero-title{
-            margin-bottom: 0px;
-            margin-top: 100px;
-            color: #000;
-            font-family: Times New Roman;
-            font-size: 48px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 56px; /* 116.667% */ 
-        }
-        .hero-description{
-            color: rgba(0, 0, 0, 0.60);
-            font-family: Times New Roman;
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 28.8px; /* 120% */
-        }
-        .hero-navigate{
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            margin-top: 60px;
-        }
-        .hero-btn{
-            background-color: transparent;
-            border: 1px solid black;
-            border-radius: 2px;
-            padding: 9px 30px 12px 28px;
-            font-family: Times New Roman;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 24px; /* 150% */
-            letter-spacing: 1px;
-            display: flex;
-        }
-        .hero-btn:hover{
-            cursor: pointer;
-        }
-        .secondary{
-            border: none;
-        }
-        #newsletter{
-            width: 80%;
-            margin: auto;
-            font-family: 'Times New Roman', Times, serif;
-            padding-top: 55px;
-            margin-bottom: 35px;
-        }
-        .newsletter-title{
-            font-family: Times New Roman;
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 24px; /* 100% */
-        }
-        .newsletter-subtitle{
-            font-family: Times New Roman;
-            font-size: 15px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 22.5px; /* 150% */
-        }
-        .newsletter-input{
-            border: 1px solid #000;
-        }
-        .newsletter-btn{
-            margin-top: 20px;
-            border-radius: 1px;
-        }
-        footer{
-            width: 80%;
-            margin: auto;
-            font-family: 'Times New Roman', Times, serif;
-        }
-        .footer-copyright{
-            margin-top: 0px;
-            font-family: Times New Roman;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 21px; /* 150% */
-        }
-        .company-name{
-            font-family: Times New Roman;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 21px;
-        }
-    </style>
 </head>
 <body>
-    <nav>
-        <h2>Simple Header</h2>
-    </nav>
-    <section id="hero">
-        <div class="hero-text">
-            <p class="hero-title">Better Solutions For Your Business</p>
-            <div class="hero-description">We are team of talented designers making websites with Bootstrap</div>
-            <div class="hero-navigate">
-                <button class="hero-btn">Get Started</button>
-                <div class="hero-btn secondary">Watch Video</div>
+    <header>
+        <nav>
+            <h2>Simple Header</h2>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        <section id="hero">
+            <div>
+                <p>Better Solutions For Your Business</p>
+                <div>We are team of talented designers making websites with Bootstrap</div>
+                <div>
+                    <a href="./createAccount.html"><button>Get Started</button></a> <button>watch video</button>
+                </div>
             </div>
-        </div>
-        <img src="hero-png.png" alt="hero-img">
-    </section>
-    <section id="newsletter">
-        <p class="newsletter-title">Join Our Newsletter</p>
-        <p class="newsletter-subtitle">Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-        <input type="text" size="70" class="newsletter-input">
-        <button class="hero-btn newsletter-btn">Get Started</button>
-    </section>
-    <hr>
+            <img src="hero-png.png" alt="hero-img">
+        </section>
+        <section id="newsletter">
+            <p>Join Our Newsletter</p>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <input type="text" size="70" ><br>
+            <a href="./createAccount.html"><button>Get Started</button></a>
+        </section>
+        <hr>
+    </main>
     <footer>
-        <p class="footer-copyright">© Copyright <span class="company-name">Arsha.</span> All Rights Reserved</p>
-        <br>
+        <p>© Copyright <span class="company-name">Arsha.</span> All Rights Reserved</p>
         <p>Designed by BootstrapMade</p>
     </footer>
 </body>
