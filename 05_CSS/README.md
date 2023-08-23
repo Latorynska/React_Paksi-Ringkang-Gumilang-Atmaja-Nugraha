@@ -1,0 +1,11 @@
+## poin pertama
+pada dasarnya dan sejatinya css berguna dan berfungsi untuk menambah estetika dan penampilan front end sebuah website, yang dimana akan pengguna akan lebih nyaman dan lebih menarik perhatian pengguna sebagaimana mestinya tergantung pada informasi, pesan, dan tampilan agar lebih mudah digunakan dan tidak adanya kesalahpahaman dalam menggunakan suatu fungsi atau penerimaan informasi yang diberikan. walau begitu css tidak bisa berdirini sendiri dalam hal ini, masih ada html yang harus menjadi tempat dipasangkannya CSS agar dapat dilihat dan dinikmati
+
+## poin kedua
+selain dari hanya tampilan statis, css juga dapat membuat animasi ketika user sedang berinteraksi, sperti scroll halaman, interaksi langsung dengan berbagai macam input, klik tombol, dan lainnya. bahkan untuk animasi dapat diatur dengan keyframe, dan banyak hal yang dapat dianimasikan, dimulai dari warna, ukuran, posisi, dan banyak lainnya yang dimana jika memang ingin diperdalam dan dikuasai tidak membutuhkan waktu yang sedikit dan imajinasi yang cukup bebas dan luas untuk menerapkan animasi-animasi advanced pada css
+
+## poin ketiga
+css juga dapat mengatur tampilan yang responsif dalam resolusi layar yang berbeda, html sebagai kerangka akan tetap memiliki susuna yang sama di berbagai macam device yang berbeda ketika diakses (tanpa bantuan js dan csss), namun dengan css pengembang dapat menentukan tampilan seperti apa yang akan ditampilkan ketika pengguna mengakses di viewport atau resolusi yang berbeda, umumnya css dapat mengatur tampilan untuk mobile view atau untuk desktop web view yang dimana dari segi tampilan pasti akan berbeda, desktop web view disatu sisi lebih berorientasi pada horizontal view, sedangkan mobile web view lebih ke arah vertical view, yang dimana penempatan teks dan gambar pun harus disesuaikan, mulai dari penempatan, ukuran, komposisi dan banyak lainnya
+
+## kesimpulan
+css walau hanya untuk mengatur secara tampilan bukan secara fungsionalitas, tapi impact terhadap pengalaman pengguna tidak kalah penting dari html dan js, karena css dapat membuat pengalaman pengguna lebih baik dari segi estetika, kenyamanan, dan keakuratan informasi yang diberikan dengan cara mengatur posisi, warna, ukuran, motion atau gerakan suatu komponen dan lainnya hanya dari menggunakan dan penguasaan css yang benar dan tepat
