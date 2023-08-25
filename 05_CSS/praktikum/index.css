@@ -243,6 +243,8 @@ body{
         background: #37517E;
         padding: 20px;
         flex-wrap: wrap; 
+        padding-left: 5%;
+        padding-right: 5%;
     }
     
     footer .footer-message {
@@ -250,7 +252,7 @@ body{
         justify-content: space-between; 
         align-items: center;
         text-align: center; 
-        width: 100%; 
+        width: 100%;
     }
     footer .footer-message p {
         color: #FFF;
