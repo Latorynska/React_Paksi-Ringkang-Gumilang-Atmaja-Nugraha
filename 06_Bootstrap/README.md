@@ -1,0 +1,17 @@
+## poin pertama
+bootstrap mungkin dapat disebut atau dikatakan framework untuk css, bahkan include dengan javascript untuk keperluan front-end development, dimana sudah menyediakan class-class yang dapat digunakan dengan pre-made style tertentu tergantung pada tag html yang akan digunakan. seperti mulai dari yang paling sederhana adalah font-size, pewarnaan, ukuran suatu item dan banyak lainnya. untuk instalasi, dapat menyertakan link url file .css dan .js yang bisa didapat dari dokumentasi bootstrap tergantung pada versi yang ingin digunakan
+
+## poin kedua
+dalam hal layouting dalam bootstrap menggunakan display grid secara khususnya, dimana setiap row memiliki column maksimal 12, contoh col-1 sampai col-12 dalam satu row. selain dari layouting juga dapat mengatur sizing margin, padding, dan size lainnya contoh seperti menerapkan class pada suatu tag seperti pt-1 untuk padding-top, mb-x untuk margin. dan juga untuk beberapa tag class tertentu, dapat memiliki suatu animasi seperti hover pada button yang sudah tersedia secara default. untuk layouting mengguanakan grid dari bootstrap, ada catatan untuk responsif dari grid tersebut, seperti -sm untuk device android atau dimulai dari width 0 px hingga 500 sekian, md untuk tablet, lg dan xl untuk desktop dan mungkin lebih besar
+
+## poin ketiga
+untuk meng-override style default dari sebuah class dari bootstrap, kita dapat menerapkan class buatan atau custom dengan menyertakan kata kunci !important pada setiap atribut style yang memang ingin diterapkan.
+
+## kesimpulan
+Bootstrap adalah sebuah framework untuk pengembangan front-end yang menyediakan komponen-komponen CSS dan JavaScript siap pakai. Framework ini memungkinkan pengguna untuk dengan cepat dan mudah membangun antarmuka pengguna yang memiliki gaya yang konsisten dan responsif. Bootstrap memungkinkan pengguna untuk menggunakan kelas-kelas yang telah disediakan dengan gaya yang sudah ditentukan untuk berbagai elemen HTML, seperti mengatur ukuran font, pewarnaan, dan ukuran elemen lainnya. Instalasi Bootstrap melibatkan penyertakan tautan URL ke file .css dan .js yang diperlukan.
+
+Dalam pengaturan layout menggunakan Bootstrap, display grid digunakan dengan membagi setiap baris (row) menjadi kolom-kolom (columns) dengan total maksimal 12 kolom dalam satu baris. Ini memungkinkan pengguna untuk dengan mudah mengatur tata letak dan mengatur margin, padding, serta ukuran elemen-elemen dengan menggunakan kelas-kelas yang disediakan oleh Bootstrap. Beberapa kelas juga memberikan efek animasi, seperti efek hover pada tombol. Responsivitas juga diperhatikan dalam pengaturan grid, dengan kelas-kelas seperti -sm, -md, -lg, dan -xl yang mengatur tampilan yang berbeda untuk perangkat dengan lebar layar yang berbeda.
+
+Ketika ingin mengubah gaya default yang diberikan oleh Bootstrap, pengguna dapat membuat kelas kustom dan menggunakan kata kunci !important pada atribut-atribut gaya yang ingin dioverride. Hal ini memungkinkan gaya kustom untuk memiliki prioritas yang lebih tinggi daripada gaya default yang diberikan oleh Bootstrap.
+
+Secara keseluruhan, Bootstrap adalah alat yang kuat untuk pengembangan antarmuka pengguna yang cepat dan konsisten. Dengan menyediakan kelas-kelas siap pakai, tata letak grid yang responsif, dan fleksibilitas untuk mengubah gaya sesuai kebutuhan, Bootstrap memudahkan pengembang dalam menciptakan tampilan yang menarik dan fungsional.
