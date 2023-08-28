@@ -2,3 +2,7 @@ input[type=file]::file-selector-button{
     background-color: #007BFF;
     color: white;
 }
+
+.has-error .form-control {
+    border-color: red !important;
+}
