@@ -46,7 +46,7 @@
             <section class="row m-lg-5 justify-content-center">
                 <div class="col-md-9">
                     <h2>Detail Product</h2>
-                    <form action="#" class="mt-5 needs-validation" id="form-product" novalidate>
+                    <form action="#" method="" class="mt-5 needs-validation" id="form-product" novalidate>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="productName" class="form-label fs-5">Product Name</label>
@@ -59,6 +59,7 @@
                                     data-bs-placement="right" 
                                     data-bs-title="Input Nama Produk" 
                                     onkeydown="validateForm();" 
+                                    maxlength="25"
                                     required>
                                     <div class="invalid-feedback">
                                         Please isnert a valid product name
@@ -223,6 +224,40 @@
     <footer>
 
     </footer>
+    <!-- modal product detail -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <dl class="row">
+                        <dt class="col-sm-5">Product Name:</dt>
+                        <dd class="col-sm-7" id="modalProductName"></dd>
+
+                        <dt class="col-sm-5">Product Category:</dt>
+                        <dd class="col-sm-7" id="modalProductCategory"></dd>
+
+                        <dt class="col-sm-5">Product Freshness:</dt>
+                        <dd class="col-sm-7" id="modalProductFreshness"></dd>
+
+                        <dt class="col-sm-5">Description:</dt>
+                        <dd class="col-sm-7" id="modalProductDescription"></dd>
+
+                        <dt class="col-sm-5">Product Price:</dt>
+                        <dd class="col-sm-7" id="modalProductPrice"></dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="continueSubmitButton">Continue Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
@@ -236,6 +271,7 @@
 
             Array.prototype.slice.call(forms).forEach(function (form) {
                 form.addEventListener('submit', function (event) {
+                    event.preventDefault();
                     if (!form.checkValidity()) {
                         event.preventDefault();
                         event.stopPropagation();
@@ -245,6 +281,10 @@
                         var fileInput = form.querySelector('input[type="file"][name="productImage"]');
                         var fileError = form.querySelector('.invalid-feedback[data-input="productImage"]');
                         var productNameInput = form.querySelector('input[name="productName"]');
+                        var productCategoryInput = form.querySelector('select[name="productCategory"]');
+                        var descriptionInput = form.querySelector('textarea[name="description"]');
+                        var priceInput = form.querySelector('input[name="price"]');;
+                        var selectedFreshness = form.querySelector('input[type="radio"][name="freshness"]:checked').value;
                         
                         var isRadioChecked = Array.prototype.slice.call(radioGroups).some(function (radio) {
                             return radio.checked;
@@ -270,6 +310,14 @@
                             event.preventDefault();
                             event.stopPropagation();
                             swal("Error", "Product Name must not exceed 25 characters.", "error");
+                        } 
+                        else if(productNameInput.value.trim() === ""){
+                            event.preventDefault();
+                            event.stopPropagation();
+                            swal("Error", "Product Name Must Not Empty", "error");
+                            productNameInput.classList.remove("is-valid");
+                            productNameInput.classList.add("is-invalid");
+
                         } else if (/[#{}@]/.test(productNameInput.value)) {
                             event.preventDefault();
                             event.stopPropagation();
@@ -278,6 +326,18 @@
                             productNameInput.classList.remove("is-valid");
                             productNameInput.classList.add("is-invalid");
                             productNameInput.style.backgroundImage = "none";
+                        } else {
+
+                            // Populate the modal with product data
+                            document.getElementById('modalProductName').textContent = productNameInput.value;
+                            document.getElementById('modalProductCategory').textContent = productCategoryInput.options[productCategoryInput.selectedIndex].text;
+                            document.getElementById('modalProductFreshness').textContent = selectedFreshness;
+                            document.getElementById('modalProductDescription').textContent = descriptionInput.value;
+                            document.getElementById('modalProductPrice').textContent = priceInput.value;
+
+                            // Show the modal
+                            var productModal = new bootstrap.Modal(document.getElementById('productModal'));
+                            productModal.show();
                         }
                     }
                     
@@ -285,6 +345,7 @@
                 }, false);
             });
         })();
+
 
         function showError(element, message) {
             const formGroup = element.closest('.mb-3');
@@ -359,8 +420,10 @@
             } else {
                 hideError(priceInput);
             }
-
-            if (productNameInput.value.length > 10) {
+            
+            if (productNameInput.value.trim() === "") {
+                showError(productNameInput, 'Product Name must not empty!');
+            } else if (productNameInput.value.length > 10) {
                 showError(productNameInput, 'Product Name must not exceed 25 characters.');
             } else if (productNameInput.value.length > 25) {
                 showError(productNameInput, 'Product Name must not exceed 25 characters.');
@@ -373,5 +436,13 @@
         }
     </script>
   
+    <script>
+        document.getElementById('continueSubmitButton').addEventListener('click', function () {
+            var form = document.getElementById('form-product');
+            if (form.checkValidity()) {
+                form.submit();
+            }
+        });
+    </script>
 </body>
 </html>
