@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- assets -->
+    <link rel="stylesheet" href="./assets/createProductStyles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" href="#">Simple Header</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#"><button class="btn btn-primary fw-semibold">Home</button></a>
+                        <a class="nav-link text-secondary" href="#"><button class="btn text-primary fw-semibold">Features</button></a>
+                        <a class="nav-link text-secondary" href="#"><button class="btn text-primary fw-semibold">Pricing</button></a>
+                        <a class="nav-link text-secondary" href="#"><button class="btn text-primary fw-semibold">FAQs</button></a>
+                        <a class="nav-link text-secondary" href="#"><button class="btn text-primary fw-semibold">About</button></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="container">
+            <section class="pt-lg-5 text-center">
+                <figure>
+                    <img src="./assets/bootstrap-logo.svg.svg" class="mx-auto d-block" alt="...">
+                </figure>
+                <article>
+                    <h1>Create Product</h1>
+                    <h3 class="text-secondary">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</h3>
+                </article>
+            </section>
+            <section class="row m-lg-5 justify-content-center">
+                <div class="col-md-9">
+                    <h2>Detail Product</h2>
+                    <form action="#" method="" class="mt-5 needs-validation" id="form-product" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="productName" class="form-label fs-5">Product Name</label>
+                                <input 
+                                    name="productName"
+                                    type="text" 
+                                    class="form-control" 
+                                    id="productName" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    data-bs-title="Input Nama Produk" 
+                                    onkeydown="validateForm();" 
+                                    onchange="validateForm();" 
+                                    maxlength="25"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        Please isnert a valid product name
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 mb-3">
+                                <label for="productCategory" class="form-label fs-5">Product Category</label>
+                                <select class="form-select" 
+                                    aria-label="Default select example" 
+                                    name="productCategory" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    data-bs-title="Kategori Produk" 
+                                    onchange="validateForm();" 
+                                    required>
+                                    <option value="one">One</option>
+                                    <option value="two">Two</option>
+                                    <option value="three">Three</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Pilih Kategori Produk
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="productImage" class="form-label">Image of Product</label>
+                                <input 
+                                    class="form-control border-primary text-primary" 
+                                    name="productImage"
+                                    type="file" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    data-bs-title="Foto Produk" 
+                                    id="productImage"
+                                    onchange="validateForm();" 
+                                    required>
+                                <div class="invalid-feedback" data-input="productImage">
+                                    Pilih foto produk
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="freshness" class="form-label">Product Freshness</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="freshness" id="brand_new" value="brand_new" onchange="validateForm();"  required>
+                                    <label class="form-check-label" for="brand_new">
+                                        Brand New
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="freshness" id="second_hand" value="second_hand" onchange="validateForm();"  required>
+                                    <label class="form-check-label" for="second_hand">
+                                        Second Hand
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="freshness" id="refurbished" value="refurbished" onchange="validateForm();"  required>
+                                    <label class="form-check-label" for="refurbished">
+                                        Refurbished
+                                    </label>
+                                    <div class="invalid-feedback" data-radio="freshness">
+                                        Pilih keadaan produk
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Additional Description</label>
+                                <textarea class="form-control" name="description" id="" cols="30" rows="5" onchange="validateForm();"  required></textarea>
+                                <div class="invalid-feedback">
+                                    masukkan deskripsi produk
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Product Price</label>
+                                <input type="text" 
+                                    class="form-control" 
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '');" 
+                                    inputmode="numeric" 
+                                    pattern="[0-9]*" 
+                                    name="price" 
+                                    id="price" 
+                                    placeholder="$ 1" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    data-bs-title="Harga Produk" 
+                                    onchange="validateForm();" 
+                                    required>
+                                <div class="invalid-feedback">
+                                    please enter a valid product price
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mt-5 d-grid col-md-11 mx-auto">
+                                <button class="btn btn-lg btn-primary" type="submit" disabled>Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </section>
+        <!-- table -->
+        <section class="container">
+            <div class="row">
+                <h1 class="text-center">List Product</h1>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Product Name</th>
+                                <th>Product Category</th>
+                                <th>Image Of product</th>
+                                <th>Product Freshness</th>
+                                <th>Additional Description</th>
+                                <th>Product Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="container row">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="search" placeholder="Search by Product Name">
+                </div>
+            </div>
+            <div class="container row">
+                <div class="col-md-3">
+                    <button class="btn btn-sm btn-primary" id="btn-delete-data">Deletion</button>
+                    <button class="btn btn-sm btn-outline-primary" id="btn-search">Search</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <!-- modal product detail -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <dl class="row">
+                        <dt class="col-sm-5">Product Name:</dt>
+                        <dd class="col-sm-7" id="modalProductName"></dd>
+
+                        <dt class="col-sm-5">Product Category:</dt>
+                        <dd class="col-sm-7" id="modalProductCategory"></dd>
+
+                        <dt class="col-sm-5">Product Freshness:</dt>
+                        <dd class="col-sm-7" id="modalProductFreshness"></dd>
+
+                        <dt class="col-sm-5">Description:</dt>
+                        <dd class="col-sm-7" id="modalProductDescription"></dd>
+
+                        <dt class="col-sm-5">Product Price:</dt>
+                        <dd class="col-sm-7" id="modalProductPrice"></dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="continueSubmitButton">Continue Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    <script src="./assets/createProductJs.js"></script>
+</body>
+</html>
