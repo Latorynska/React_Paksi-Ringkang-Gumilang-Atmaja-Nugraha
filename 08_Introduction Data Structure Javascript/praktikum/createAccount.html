@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<head>
+    <title>Create Account</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- assets -->
+    <link rel="stylesheet" href="./assets/createProductStyles.css">
+</head>
+<bod class="container">
+    <main>
+        <section class="container">
+            <section class="pt-lg-5 text-center">
+                <article>
+                    <h1>Create Account</h1>
+                </article>
+            </section>
+            <section class="row m-lg-5 justify-content-center">
+                <div class="col-md-9">
+                    <h2>Detail Form</h2>
+                    <form action="#" method="" class="mt-5 needs-validation" id="form-product" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label fs-5">First Name</label>
+                                <input 
+                                    name="firstName"
+                                    type="text" 
+                                    class="form-control" 
+                                    id="firstName" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    data-bs-title="Input Nama Produk" 
+                                    onkeydown="validateForm();" 
+                                    onchange="validateForm();" 
+                                    maxlength="25"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        Please insert Your First Name
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label fs-5">Last Name</label>
+                                <input 
+                                    name="lastName"
+                                    type="text" 
+                                    class="form-control" 
+                                    id="lastName" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    data-bs-title="Input Nama Produk" 
+                                    onkeydown="validateForm();" 
+                                    onchange="validateForm();" 
+                                    maxlength="25"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        Please isnert your last name
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="username" class="form-label fs-5">Username </label>
+                                <input 
+                                    name="username"
+                                    type="text" 
+                                    class="form-control" 
+                                    id="username" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    data-bs-title="Input Nama Produk" 
+                                    onkeydown="validateForm();" 
+                                    onchange="validateForm();" 
+                                    maxlength="25"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        please insert your username
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label fs-5">Email</label>
+                                <input 
+                                    name="email"
+                                    type="email" 
+                                    class="form-control" 
+                                    id="email" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    data-bs-title="Input Nama Produk" 
+                                    onkeydown="validateForm();" 
+                                    onchange="validateForm();" 
+                                    maxlength="25"
+                                    required>
+                                    <div class="invalid-feedback">
+                                        please insert your email
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">Gender</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" onchange="validateForm();"  required>
+                                    <label class="form-check-label" for="male">
+                                        Male
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="female" value="female" onchange="validateForm();"  required>
+                                    <label class="form-check-label" for="female">
+                                        Female
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="other" value="other" onchange="validateForm();"  required>
+                                    <label class="form-check-label" for="other">
+                                        Other
+                                    </label>
+                                    <div class="invalid-feedback" data-radio="gender">
+                                        Pilih Gender Anda
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="address1" class="form-label">Address</label>
+                                <textarea class="form-control" name="address1" id="" cols="30" rows="5" onchange="validateForm();"  required></textarea>
+                                <div class="invalid-feedback">
+                                    isi alamat anda
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="address2" class="form-label">Address 2</label>
+                                <textarea class="form-control" name="address2" id="" cols="30" rows="5" onchange="validateForm();"  required></textarea>
+                                <div class="invalid-feedback">
+                                    isi alamat anda
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 mb-3">
+                                <label for="productCategory" class="form-label fs-5">Nationality</label>
+                                <select class="form-select" 
+                                    aria-label="Default select example" 
+                                    name="nationality" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="right" 
+                                    data-bs-title="Kategori Produk" 
+                                    onchange="validateForm();" 
+                                    required>
+                                    <option value="indonesia">Indonesia</option>
+                                    <option value="other">other</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Pilih Kategori Produk
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="languageSpoken[]" class="form-label">Language Spoken :</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="bahasaIndonesia" name="languageSpoken[]" value="bahasa indonesia">
+                                    <label class="form-check-label" for="bahasaIndonesia">
+                                        Bahasa Indonesia
+                                    </label>
+                                </div>
+                    
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="english" name="languageSpoken[]" value="English">
+                                    <label class="form-check-label" for="english">
+                                        English
+                                    </label>
+                                </div>
+                    
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="otherLanguage" name="languageSpoken[]" value="OtherLanguage">
+                                    <label class="form-check-label" for="otherLanguage">
+                                        Other
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mt-5 d-grid col-md-11 mx-auto">
+                                <button class="btn btn-lg btn-primary" type="submit" disabled>Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </section>
+        <!-- table -->
+        <section class="container">
+            <div class="row">
+                <h1 class="text-center">List Users</h1>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Address</th>
+                                <th>Nationality</th>
+                                <th>Language Spoken</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    <script>
+            const form = document.getElementById('form-product');
+            const tableBody = document.getElementById('table-body');
+            const submitButton = document.querySelector('button[type="submit"]');
+            
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent the default form submission
+                
+                // Get form values
+                const firstName = form.querySelector('input[name="firstName"]').value;
+                const lastName = form.querySelector('input[name="lastName"]').value;
+                const username = form.querySelector('input[name="username"]').value;
+                const email = form.querySelector('input[name="email"]').value;
+                const gender = form.querySelector('input[name="gender"]:checked').value;
+                const address1 = form.querySelector('textarea[name="address1"]').value;
+                const address2 = form.querySelector('textarea[name="address2"]').value;
+                const nationality = form.querySelector('select[name="nationality"]').value;
+                const languageSpoken = [];
+                const checkboxes = form.querySelectorAll('input[name="languageSpoken[]"]:checked');
+                checkboxes.forEach(function (checkbox) {
+                    languageSpoken.push(checkbox.value);
+                });
+                
+                // Create a new table row and add form data to it
+                const newRow = tableBody.insertRow();
+                newRow.innerHTML = `
+                    <td>${tableBody.rows.length}</td>
+                    <td>${firstName}</td>
+                    <td>${lastName}</td>
+                    <td>${username}</td>
+                    <td>${email}</td>
+                    <td>${gender}</td>
+                    <td>${address1}<br>${address2}</td>
+                    <td>${nationality}</td>
+                    <td>${languageSpoken.join(', ')}</td>
+                `;
+                
+                // Clear the form
+                form.reset();
+                
+                // Disable the submit button again after submission
+                submitButton.disabled = true;
+            });
+            
+            // Enable or disable the submit button based on form validation
+            function validateForm() {
+                const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+                let valid = true;
+                inputs.forEach(function (input) {
+                    if (!input.checkValidity()) {
+                        valid = false;
+                    }
+                });
+                submitButton.disabled = !valid;
+            }
+            
+            form.addEventListener('input', validateForm);
+    </script>
+</body>
+</html>
