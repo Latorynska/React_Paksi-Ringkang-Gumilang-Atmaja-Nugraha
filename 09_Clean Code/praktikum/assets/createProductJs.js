@@ -256,3 +256,15 @@ function validateForm() {
     return isFormValid;
 }
 
+var formProduct = document.getElementById('form-product');
+// Menambahkan event listener untuk event change ke seluruh elemen dalam formulir
+var formElements = formProduct.querySelectorAll('input, select, textarea');
+formElements.forEach(function(element) {
+    element.addEventListener('change', validateForm);
+});
+// Menambahkan event listener untuk event input ke elemen "price", 
+// karena price merupakan input yang harusnya hanya input angka
+var priceInput = document.getElementById('price');
+priceInput.addEventListener('input', validateForm);
+var productNameInput = document.getElementById('productName');
+productNameInput.addEventListener('keydown', validateForm);

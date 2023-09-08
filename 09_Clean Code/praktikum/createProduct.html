@@ -58,8 +58,6 @@
                                     data-bs-toggle="tooltip" 
                                     data-bs-placement="right" 
                                     data-bs-title="Input Nama Produk" 
-                                    onkeydown="validateForm();" 
-                                    onchange="validateForm();" 
                                     maxlength="25"
                                     required>
                                     <div class="invalid-feedback">
@@ -76,7 +74,6 @@
                                     data-bs-toggle="tooltip" 
                                     data-bs-placement="right" 
                                     data-bs-title="Kategori Produk" 
-                                    onchange="validateForm();" 
                                     required>
                                     <option value="" disabled selected>Choose category...</option>
                                     <option value="Electronic">Electronic</option>
@@ -99,7 +96,6 @@
                                     data-bs-placement="right" 
                                     data-bs-title="Foto Produk" 
                                     id="productImage"
-                                    onchange="validateForm();" 
                                     required>
                                 <div class="invalid-feedback" data-input="productImage">
                                     Pilih foto produk
@@ -113,19 +109,19 @@
                                     <label class="form-check-label" for="brand_new">
                                         Brand New
                                     </label>
-                                    <input class="form-check-input" type="radio" name="freshness" id="brand_new" value="brand_new" onchange="validateForm();"  required>
+                                    <input class="form-check-input" type="radio" name="freshness" id="brand_new" value="brand_new" required>
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="second_hand">
                                         Second Hand
                                     </label>
-                                    <input class="form-check-input" type="radio" name="freshness" id="second_hand" value="second_hand" onchange="validateForm();"  required>
+                                    <input class="form-check-input" type="radio" name="freshness" id="second_hand" value="second_hand" required>
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label" for="refurbished">
                                         Refurbished
                                     </label>
-                                    <input class="form-check-input" type="radio" name="freshness" id="refurbished" value="refurbished" onchange="validateForm();"  required>
+                                    <input class="form-check-input" type="radio" name="freshness" id="refurbished" value="refurbished" required>
                                     
                                     <div class="invalid-feedback" data-radio="freshness">
                                         Pilih keadaan produk
@@ -136,7 +132,7 @@
                         <div class="row">
                             <div class="mb-3">
                                 <label for="description" class="form-label">Additional Description</label>
-                                <textarea class="form-control" name="description" id="" cols="30" rows="5" onchange="validateForm();"  required></textarea>
+                                <textarea class="form-control" name="description" id="" cols="30" rows="5" required></textarea>
                                 <div class="invalid-feedback">
                                     masukkan deskripsi produk
                                 </div>
@@ -157,7 +153,6 @@
                                     data-bs-toggle="tooltip" 
                                     data-bs-placement="right" 
                                     data-bs-title="Harga Produk" 
-                                    onchange="validateForm();" 
                                     required>
                                 <div class="invalid-feedback">
                                     please enter a valid product price
