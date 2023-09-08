@@ -1,0 +1,12 @@
+# 1
+Di dalam react menggunakan jsx untuk pengkodean didalamnya, jadi menggunakan metode pemrograman deklaratif. jsx itu sendiri ialah javascript xml, sehingga kita dapat menulis kode yang 'seperti' html dalam bentuk javascript
+
+# 2
+dalam react kode merupakan berbentuk component based, dimana setiap element dibentuk kedalam komponen-komponen yang sangat direkomendasikan agar satu komponen memiliki satu fungsi, agar tidak membuat satu komponen memiliki terlalu banyak fungsi atau tujuan dan membuatnya menjadi tidak efektif serta sulit untuk di maintain. dimana setiap komponen juga memiliki lifecycle, mulai dari componentWillMount, didMount, hingga component didUnmmount. namun juga ada beberapa fungsi lifecycle yang dapat dipanggil secara paksa.
+
+# 3
+dengan penggunaan pengkondisian, komponen juga dapat diatur behavior, seperti apakah misal akan ditampilkan, tidak ditampilkan, atau hanya menampilkan sebagian bergantung pada kondisi tertentu dari suatu data. selain dari itu, dengan adanya pengkondisian didalam komponen-komponen yang digunakan, akan membuat kode lebih sederhana, lebih pendek, lebih mudah dimengerti, dan juga lebih ringan untuk dijalankan.
+
+# kesimpulan
+Di dalam react menggunakan jsx untuk pengkodean didalamnya, jadi menggunakan metode pemrograman deklaratif. jsx itu sendiri ialah javascript xml, sehingga kita dapat menulis kode yang 'seperti' html dalam bentuk javascript dalam react kode merupakan berbentuk component based, dimana setiap element dibentuk kedalam komponen-komponen yang sangat direkomendasikan agar satu komponen memiliki satu fungsi, agar tidak membuat satu komponen memiliki terlalu banyak fungsi atau tujuan dan membuatnya menjadi tidak efektif serta sulit untuk di maintain. dimana setiap komponen juga memiliki lifecycle, mulai dari componentWillMount, didMount, hingga component didUnmmount. namun juga ada beberapa fungsi lifecycle yang dapat dipanggil secara paksa.
+dengan penggunaan pengkondisian, komponen juga dapat diatur behavior, seperti apakah misal akan ditampilkan, tidak ditampilkan, atau hanya menampilkan sebagian bergantung pada kondisi tertentu dari suatu data. selain dari itu, dengan adanya pengkondisian didalam komponen-komponen yang digunakan, akan membuat kode lebih sederhana, lebih pendek, lebih mudah dimengerti, dan juga lebih ringan untuk dijalankan.
