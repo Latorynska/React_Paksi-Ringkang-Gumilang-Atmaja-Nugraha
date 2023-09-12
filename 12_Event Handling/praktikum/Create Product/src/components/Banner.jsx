@@ -1,6 +1,6 @@
 import BootstrapLogo from '../assets/bootstrap-logo.svg.svg';
 
-const Banner = (props) => {
+const Banner = ({ language, article }) => {
     return ( 
         <>
             <section className="pt-lg-5 text-center">
@@ -12,12 +12,10 @@ const Banner = (props) => {
                     />
                 </figure>
                 <article>
-                    <h1>Create Product</h1>
-                    <h3 className="text-secondary">
-                        Below is an example form built entirely with Bootstrap’s form
-                        controls. Each required form group has a validation state that can
-                        be triggered by attempting to submit the form without completing it.
-                    </h3>
+                    <h1>
+                        {language === 'id' ? article.title.id : article.language.en}
+                    </h1>
+                    <h3 className="text-secondary">{language === 'id' ? article.description.id : article.description.en}</h3>
                 </article>
             </section>
         </>

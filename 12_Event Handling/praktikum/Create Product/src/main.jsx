@@ -6,10 +6,12 @@ import './assets/createProductStyles.css';
 // import './assets/createProductJs.js';
 
 import CreateProduct from './pages/CreateProduct';
+import CreateAccount from './pages/CreateAccount';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CreateProduct />
+    {/* <CreateProduct /> */}
+    <CreateAccount />
   </React.StrictMode>
 )
 

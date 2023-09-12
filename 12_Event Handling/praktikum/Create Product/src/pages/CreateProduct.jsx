@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 
 import Header from '../components/Header';
 import Banner from '../components/Banner';
-import FormProduct from '../components/FormProduct';
-import TableProduct from '../components/TableProduct';
-import ModalProduct from '../components/ModalProduct';
+import FormProduct from '../components/CreateProduct/FormProduct';
+import TableProduct from '../components/CreateProduct/TableProduct';
 import Footer from '../components/Footer';
 import Container from '../components/Container';
-import RandomNumberButton from '../components/RandomNumberButton';
+import RandomNumberButton from '../components/CreateProduct/RandomNumberButton';
 
 class CreateProduct extends Component {
     constructor(props) {
@@ -37,7 +36,7 @@ class CreateProduct extends Component {
             <>
                 <Header navs={navs} />
                 <Container>
-                    <Banner />
+                    <Banner pageName="Product" />
                     <FormProduct />
                     <RandomNumberButton />
                     <TableProduct />
