@@ -10,8 +10,8 @@ import CreateAccount from './pages/CreateAccount';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <CreateProduct /> */}
-    <CreateAccount />
+    <CreateProduct />
+    {/* <CreateAccount /> */}
   </React.StrictMode>
 )
 

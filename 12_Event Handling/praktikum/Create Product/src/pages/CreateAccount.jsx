@@ -53,7 +53,7 @@ class CreateAccount extends Component {
             <>
                 <Header navs={navs} />
                 <Container>
-                    <Banner article={article} />
+                    <Banner article={article} language="en" />
                     <FormAccount />
                 </Container>
                 <Footer />
