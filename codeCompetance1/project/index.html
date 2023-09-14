@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Page</title>
+    <!-- Include Bootstrap CSS (Bootstrap 5.3) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for the welcoming banner */
+        .welcome-banner {
+            background-image: url("https://plus.unsplash.com/premium_photo-1664361480105-33afc4559c40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2123&q=80");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            height: 100vh; /* Set the height to 100 viewport height units */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Custom CSS for transparent navigation bar */
+        .navbar-trans {
+            background-color: transparent !important;
+        }
+        .navbar-trans.navbar-light .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-trans.navbar-light .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        /* Custom CSS for the card and elevation effect */
+        .contact-card {
+            border: none;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+
+        .elevated-form {
+            padding: 20px;
+            background-color: #f8f9fa; /* Form background color */
+            border-radius: 0 15px 15px 0; /* Rounded right corners */
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="your-logo.png" alt="Logo" width="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Welcoming Banner -->
+    <div class="welcome-banner">
+        <div class="container">
+            <h1 class="display-4">Welcome to Our Website</h1>
+            <p class="lead">We're glad to have you here. Explore our website to learn more about our products and services.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn More</a>
+        </div>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="container mt-5">
+        <div class="card contact-card">
+            <div class="row no-gutters">
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="card-body text-center">
+                        <h2 class="card-title">Contact Us</h2>
+                        <p class="card-text text-start">
+                            If you have any questions or need assistance, please don't hesitate to contact us. We are here to help!
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 elevated-form">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="First Name" name="firstname" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Last Name" name="lastname" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" placeholder="Message" rows="4" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="row">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <h1 class="web-contact-title d-inline me-1 px-1">L</h1>
+                            <h4 class="d-inline align-middle">otarynska</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>
+                            you can find <span class="web-contact-title">us</span> at
+                        </p>
+                    </div>
+                    <div class="row">
+                        <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-github fa-lg text-white"></i> </a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin fa-lg text-white"></i> </a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram fa-lg text-white"></i> </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <h1 class="web-contact-title bg-transparent border-bottom">Our Contact</h1>
+                    <div class="row">
+                        <div class="col-3">
+                            <h5>wanna call us?</h5>
+                            <h6 class="text-secondary">here is our phone number</h6>
+                            <div id="phone-number-contact">
+                                +62 812 1410 763
+                                <button
+                                    id="btn-phone-contact"
+                                    class="btn p-0 ms-2 text-white"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="right"
+                                    data-clipboard-target="#phone-number-contact"
+                                    title="Copy Phone Number"
+                                >
+                                    <i class="fa fa-regular fa-copy fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h5>Our Address?</h5>
+                            <div class="container bg-secondary">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        Jl. Raya Sukabumi
+                                    </li>
+                                    <li>
+                                        Kecamatan Cianjur
+                                    </li>
+                                    <li>
+                                        Kabupaten Cianjur
+                                    </li>
+                                    <li>
+                                        Provinsi Jawa Barat, Indonesia
+                                    </li>
+                                    <li>
+                                        postal code 43212
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <h5>wanna Email us?</h5>
+                            <h6 class="text-secondary">here is our Email</h6>
+                            <div class="">
+                                seria.latorynska@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="subscription-text">
+                        <i class="fa fa-solid fa-envelope"></i>
+                        <p class="d-inline">keep in touch with us!</p>
+                    </div>
+                    <div class="subscription-form container">
+                        <form action="#" method="" class="">
+                            <div class="row">
+                                <div class="input-group mb-3 mt-3">
+                                    <input type="text" class="form-control bg-transparent text-white border-secondary border-top-0 border-end-0 place" placeholder="Enter your E-Mail address">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="d-grid">
+                                        <button class="btn btn-danger btn-signup text-white">Sign Up</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include Bootstrap JS (Bootstrap 5.3) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- JavaScript to toggle transparent background for the navbar when scrolled -->
+    <script>
+        window.onscroll = function() {
+            if (window.pageYOffset > 50) {
+                document.querySelector(".navbar").classList.remove("bg-light");
+                document.querySelector(".navbar").classList.add("navbar-trans");
+            } else {
+                document.querySelector(".navbar").classList.add("bg-light");
+                document.querySelector(".navbar").classList.remove("navbar-trans");
+            }
+        };
+
+        // JavaScript to handle form submission and display an alert
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get form data
+            const firstname = document.querySelector('input[name="firstname"]').value;
+            const lastname = document.querySelector('input[name="lastname"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const message = document.querySelector('textarea[name="message"]').value;
+
+            // Display an alert with the form data
+            const alertMessage = `First Name: ${firstname}\nLast Name: ${lastname}\nEmail: ${email}\nMessage:\n${message}`;
+            alert("Form Data:\n" + alertMessage);
+
+            // Optionally, you can reset the form
+            this.reset();
+        });
+
+        // Initialize Tooltip
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Initialize Clipboard.js
+        var clipboard = new ClipboardJS('#btn-phone-contact');
+
+        clipboard.on('success', function (e) {
+            e.clearSelection();
+            // Show a SweetAlert success notification
+            Swal.fire({
+            icon: 'success',
+            title: 'you successfully copied my number >_<',
+            toast: true,
+            position: 'bottom',
+            showConfirmButton: false,
+            timer: 2000
+        });
+        });
+    </script>
+</body>
+</html>
