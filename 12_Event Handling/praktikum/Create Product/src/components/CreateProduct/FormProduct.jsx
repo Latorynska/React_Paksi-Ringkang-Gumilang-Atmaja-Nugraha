@@ -90,8 +90,8 @@ const FormProduct = (props) => {
                                     data-bs-placement="right"
                                     data-bs-title="Input Nama Produk"
                                     onChange={(e) => {
-                                        checkProductNameInput; 
-                                        checkFieldValidity
+                                        checkProductNameInput(e); 
+                                        checkFieldValidity;
                                     }}
                                 />
                                 <div className='invalid-feedback d-block'>
