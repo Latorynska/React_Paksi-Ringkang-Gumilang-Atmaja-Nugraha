@@ -9,12 +9,11 @@ const FormProduct = (props) => {
     const [isPriceError, setIsPriceError] = useState('');
     
     const checkProductNameInput = (e) =>{
-        if(e.target.value.length > 10){
-            setIsProductNameError('product name tidak boleh lebih dari 10 karakter!');
-        }
-        else if (e.target.value.length > 25) {
+        if (e.target.value.length > 25) {
             alert('product name must not exceed 25 characters!');
             setIsProductNameError('product name must not exceed 25 characters!');
+        } else if(e.target.value.length > 10){
+            setIsProductNameError('product name tidak boleh lebih dari 10 karakter!');
         } else {
             setIsProductNameError('');
         }
