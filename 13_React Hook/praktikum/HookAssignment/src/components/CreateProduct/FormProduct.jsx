@@ -13,6 +13,7 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
         productDescription: '',
         productPrice: '',
     });
+    const [buttonDisabled, setButtonDisabled] = useState(false);
 
 
     // Update productData when the product prop changes
@@ -67,8 +68,17 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
                 ...prevErrors,
                 productName: 'product name tidak boleh lebih dari 10 karakter!',
             }));
-        } 
+        }
     }, [productData]);
+
+    useEffect(() => {
+        if(isFormValid()){
+            setButtonDisabled(false);
+        }
+        else{
+            setButtonDisabled(true);
+        }
+    }, [formError]);
     
     const clearDataProduct = () => {
             setProductData({
@@ -118,6 +128,7 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
                     name: productData.name,
                     category: productData.category,
                     image: productData.image,
+                    freshness: productData.freshness,
                     description: productData.description,
                     price: productData.price,
                 };
@@ -228,7 +239,7 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
                         <div className="row">
                             <div className="mb-3">
                                 <label htmlFor="freshness" className="form-label">
-                                Product Freshness
+                                    Product Freshness
                                 </label>
                                 <div className="form-check">
                                     <label className="form-check-label" htmlFor="brand_new">
@@ -239,11 +250,12 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
                                         type="radio"
                                         name="freshness"
                                         id="brand_new"
-                                        defaultValue="brand_new"
-                                        required=""
+                                        value="brand_new"
+                                        checked={productData.freshness === 'brand_new'}
+                                        onChange={(e) => handleInputChange(e, 'freshness')}
                                     />
-                                    </div>
-                                    <div className="form-check">
+                                </div>
+                                <div className="form-check">
                                     <label className="form-check-label" htmlFor="second_hand">
                                         Second Hand
                                     </label>
@@ -252,11 +264,12 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
                                         type="radio"
                                         name="freshness"
                                         id="second_hand"
-                                        defaultValue="second_hand"
-                                        required=""
+                                        value="second_hand"
+                                        checked={productData.freshness === 'second_hand'}
+                                        onChange={(e) => handleInputChange(e, 'freshness')}
                                     />
-                                    </div>
-                                    <div className="form-check">
+                                </div>
+                                <div className="form-check">
                                     <label className="form-check-label" htmlFor="refurbished">
                                         Refurbished
                                     </label>
@@ -265,12 +278,13 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
                                         type="radio"
                                         name="freshness"
                                         id="refurbished"
-                                        defaultValue="refurbished"
-                                        required=""
+                                        value="refurbished"
+                                        checked={productData.freshness === 'refurbished'}
+                                        onChange={(e) => handleInputChange(e, 'freshness')}
                                     />
-                                    <div className="invalid-feedback d-block" data-radio="freshness">
-                                        
-                                    </div>
+                                </div>
+                                <div className="invalid-feedback d-block" data-radio="freshness">
+                                    {formError.productFreshness ? formError.productFreshness : ''}
                                 </div>
                             </div>
                         </div>
@@ -328,13 +342,14 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
                                 <button
                                     className="btn btn-lg btn-primary"
                                     type="submit"
+                                    disabled={buttonDisabled}
                                 >
                                     {
                                         productData.uuid ? "Update Data" : "Submit New Data"
                                     }
                                 </button>
                                 {
-                                    productData.uuid && <button type="button" className="btn btn-warning" onClick={clearDataProduct}>Clear Form</button>
+                                    productData.uuid && <button type="button" className="btn btn-warning" disabled={buttonDisabled} onClick={clearDataProduct}>Clear Form</button>
                                 }
                             </div>
                         </div>
