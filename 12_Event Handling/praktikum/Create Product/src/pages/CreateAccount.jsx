@@ -10,7 +10,7 @@ class CreateAccount extends Component {
     constructor(props) {
         super(props);
             this.state = {
-
+                language: 'en'
         };
     }
 
@@ -53,7 +53,8 @@ class CreateAccount extends Component {
             <>
                 <Header navs={navs} />
                 <Container>
-                    <Banner article={article} language="en" />
+                    <ButtonLanguage language={this.state.language} setLanguage={this.setLanguage}/>
+                    <Banner article={article} language={this.state.language} />
                     <FormAccount />
                 </Container>
                 <Footer />

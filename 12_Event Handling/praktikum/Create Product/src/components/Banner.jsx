@@ -13,9 +13,9 @@ const Banner = ({ language, article }) => {
                 </figure>
                 <article>
                     <h1>
-                        {language === 'ID' ? article.title.id : article.title.en}
+                        {article.title[language]}
                     </h1>
-                    <h3 className="text-secondary">{language === 'ID' ? article.description.id : article.description.en}</h3>
+                    <h3 className="text-secondary">{article.description[language]}</h3>
                 </article>
             </section>
         </>
