@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Banner from '../components/Banner';
 import FormAccount from '../components/CreateAccount/FormAccount';
+import ButtonLanguage from '../components/ButtonLanguage';
 import Swal from 'sweetalert2';
 
 const CreateAccount = () => {
+  const [language, setLanguage] = useState('en');
+
   useEffect(() => {
     document.title = "Create Account";
 
@@ -19,7 +22,7 @@ const CreateAccount = () => {
     };
   }, []);
 
-  const article = {
+  const articles = {
     title: {
       id: "Buat Akun",
       en: "Create Account"
@@ -33,7 +36,8 @@ const CreateAccount = () => {
   return (
     <>
       <main className="container">
-        <Banner article={article} language="en" />
+        <ButtonLanguage language={language} setLanguage={setLanguage} />
+        <Banner article={articles} language={language} />
         <FormAccount />
       </main>
     </>

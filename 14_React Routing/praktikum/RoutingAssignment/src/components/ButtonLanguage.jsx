@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function ButtonLanguage({language, setLanguage}) {
 
   const toggleLanguage = () => {
-    language === 'ID' ? setLanguage('EN') : setLanguage('ID');
+    language === 'id' ? setLanguage('en') : setLanguage('id');
   };
 
   return (
