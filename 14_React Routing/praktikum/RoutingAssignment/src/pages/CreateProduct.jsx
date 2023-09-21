@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Banner from '../components/Banner';
 import FormProduct from '../components/CreateProduct/FormProduct';
@@ -6,81 +6,83 @@ import TableProduct from '../components/CreateProduct/TableProduct';
 import ButtonLanguage from '../components/ButtonLanguage';
 
 const CreateProduct = () => {
+  const [language, setLanguage] = useState('en');
+  const [products, setProducts] = useState(() => {
+    // Initialize state from localStorage or with an empty array
+    const storedProducts = JSON.parse(localStorage.getItem('products'));
+    return storedProducts || [];
+  });
+  const [product, setProduct] = useState({
+    uuid: '',
+    name: '',
+    category: '',
+    image: '',
+    freshness: '',
+    description: '',
+    price: '',
+  });
 
-    const [language, setLanguage] = useState('en');
-    const [products, setProducts] = useState([]);
-    const [product, setProduct] = useState({
-        uuid: '',
-        name: '',
-        category: '',
-        image: '',
-        freshness: '',
-        description: '',
-        price: '',
-    });
-    const [articles, setArticles] = useState({
+  // Load products data from localStorage on component mount
+  useEffect(() => {
+    document.title = "Create Product";
+    return () => {
+      document.title = "React Fundamental - Paksi R";
+    };
+  }, []);
+
+  // Save products data to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('products', JSON.stringify(products));
+  }, [products]);
+
+  const addProduct = (newProduct) => {
+    // Update the products state and save to localStorage
+    const updatedProducts = [...products, newProduct];
+    setProducts(updatedProducts);
+  };
+
+  const updateProduct = (updatedProduct) => {
+    // Update the products state and save to localStorage
+    const updatedProducts = products.map((prod) =>
+      prod.uuid === updatedProduct.uuid ? updatedProduct : prod
+    );
+    setProducts(updatedProducts);
+  };
+
+  const selectProduct = (uuid) => {
+    const selectedProduct = products.find((prod) => prod.uuid === uuid);
+    if (selectedProduct) {
+      setProduct(selectedProduct);
+    }
+  };
+
+  const removeProduct = (uuid) => {
+    // Update the products state and save to localStorage
+    const updatedProducts = products.filter((prod) => prod.uuid !== uuid);
+    setProducts(updatedProducts);
+  };
+
+  const articles = {
     title: {
-        id: '',
-        en: '',
+      id: "Buat Produk",
+      en: "Create Product"
     },
     description: {
-        id: '',
-        en: '',
-    },
-    });
-
-    useEffect(() => {
-        document.title = "Create Product";
-        setArticles({
-            title: {
-                id: "Buat Produk",
-                en: "Create Product"
-            },
-            description: {
-                id: "Di bawah ini adalah contoh formulir yang dibuat seluruhnya dengan kontrol formulir Bootstrap. Setiap grup formulir yang diperlukan memiliki status validasi yang dapat dipicu dengan mencoba mengirimkan formulir tanpa menyelesaikannya.",
-                en: "Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it."
-            }
-            });
-
-        return () => {
-            document.title = "React Fundamental - Paksi R";
-        };
-    }, []);
-
-    const addProduct = (newProduct) => {
-        setProducts((prevProducts) => [...prevProducts, newProduct]);
+      id: "Di bawah ini adalah contoh formulir yang dibuat seluruhnya dengan kontrol formulir Bootstrap. Setiap grup formulir yang diperlukan memiliki status validasi yang dapat dipicu dengan mencoba mengirimkan formulir tanpa menyelesaikannya.",
+      en: "Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it."
     }
-    const updateProduct = (updatedProduct) => {
-        // Find the index of the product to update
-        const index = products.findIndex((product) => product.uuid === updatedProduct.uuid);
-        if (index !== -1) {
-            // Update the product in the products array
-            const updatedProducts = [...products];
-            updatedProducts[index] = updatedProduct;
-            setProducts(updatedProducts);
-        }
-    };
-    const selectProduct = (uuid) => {
-        const selectedProduct = products.find((product) => product.uuid === uuid);
-        if (selectedProduct) {
-          setProduct(selectedProduct);
-        }
-    };
-    const removeProduct = (uuid) => {
-        const updatedProducts = products.filter((product) => product.uuid !== uuid);
-        setProducts(updatedProducts);
-    };
-      
-    return (
+  };
+
+  return (
     <>
-        <main className="container">
-            <ButtonLanguage language={language} setLanguage={setLanguage} />
-            <Banner article={articles} language={language} />
-            <FormProduct addProduct={addProduct} product={product} updateProduct={updateProduct} />
-            <TableProduct products={products} selectProduct={selectProduct} removeProduct={removeProduct} />
-        </main>
+      <main className="container">
+        <ButtonLanguage language={language} setLanguage={setLanguage} />
+        <Banner article={articles} language={language} />
+        <FormProduct addProduct={addProduct} product={product} updateProduct={updateProduct} />
+        <TableProduct products={products} selectProduct={selectProduct} removeProduct={removeProduct} />
+      </main>
     </>
-    );
+  );
 };
 
 export default CreateProduct;

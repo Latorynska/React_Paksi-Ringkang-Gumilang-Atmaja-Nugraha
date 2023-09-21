@@ -4,23 +4,74 @@ import Banner from '../components/Banner';
 import FormAccount from '../components/CreateAccount/FormAccount';
 import ButtonLanguage from '../components/ButtonLanguage';
 import Swal from 'sweetalert2';
+import TableAccount from '../components/CreateAccount/TableAccount';
 
 const CreateAccount = () => {
   const [language, setLanguage] = useState('en');
+  const [accounts, setAccounts] = useState(() => {
+    // Initialize state from localStorage or with an empty array
+    const storedAccounts = JSON.parse(localStorage.getItem('accounts'));
+    return storedAccounts || [];
+  });
+  const [account, setAccount] = useState({
+    uuid: '',
+    firstName: '',
+    lastName: '',
+    username: '',
+    email: '',
+    gender: '',
+    address: '',
+    address2: '',
+    nationality: '',
+    languageSpoken: [],
+  });
 
+  // Load accounts data from localStorage on component mount
   useEffect(() => {
     document.title = "Create Account";
 
     Swal.fire({
-        title: 'Welcome',
-        text: 'Selamat datang pada page create account!',
-        icon: 'success',
-        timer: 3000,
+      title: 'Welcome',
+      text: 'Selamat datang pada page create account!',
+      icon: 'success',
+      timer: 3000,
     });
     return () => {
       document.title = "React Fundamental - Paksi R";
     };
   }, []);
+
+  // Save accounts data to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('accounts', JSON.stringify(accounts));
+  }, [accounts]);
+
+  const selectAccount = (uuid) => {
+    const selectedAccount = accounts.find((data) => data.uuid === uuid);
+    if (selectedAccount) {
+      setAccount(selectedAccount);
+    }
+  };
+
+  const addAccount = (newAccount) => {
+    // Update the accounts state and save to localStorage
+    const updatedAccounts = [...accounts, newAccount];
+    setAccounts(updatedAccounts);
+  };
+
+  const removeAccount = (uuid) => {
+    // Update the accounts state and save to localStorage
+    const updatedAccounts = accounts.filter((data) => data.uuid !== uuid);
+    setAccounts(updatedAccounts);
+  };
+
+  const updateAccount = (updatedAccount) => {
+    // Update the accounts state and save to localStorage
+    const updatedAccounts = accounts.map((acc) =>
+      acc.uuid === updatedAccount.uuid ? updatedAccount : acc
+    );
+    setAccounts(updatedAccounts);
+  };
 
   const articles = {
     title: {
@@ -38,7 +89,8 @@ const CreateAccount = () => {
       <main className="container">
         <ButtonLanguage language={language} setLanguage={setLanguage} />
         <Banner article={articles} language={language} />
-        <FormAccount />
+        <FormAccount account={account} updateAccount={updateAccount} addAccount={addAccount} />
+        <TableAccount accounts={accounts} selectAccount={selectAccount} removeAccount={removeAccount} />
       </main>
     </>
   );

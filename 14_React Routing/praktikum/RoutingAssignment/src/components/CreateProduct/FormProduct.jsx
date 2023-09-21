@@ -12,7 +12,9 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
         productImageUrl: '',
         productDescription: '',
         productPrice: '',
+        productFreshness: '',
     });
+    
     const [buttonDisabled, setButtonDisabled] = useState(false);
 
 
@@ -26,19 +28,15 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
         const isEmpty = Object.values(productData).some(value => value === '');
     
         // Function to update formError based on current state
-        const updateFormError = () => {
-            setFormError(prevErrors => ({
-                ...prevErrors,
-                productName: productData.name === '' ? 'Name is required' : '',
-                productCategory: productData.category === '' ? 'Category is required' : '',
-                productImageUrl: productData.image === '' ? 'Image URL is required' : '',
-                productDescription: productData.description === '' ? 'Description is required' : '',
-                productPrice: productData.price === '' ? 'Price is required' : '',
-            }));
+        const updatedFormError = {
+            productName: productData.name === '' ? 'Name is required' : '',
+            productCategory: productData.category === '' ? 'Category is required' : '',
+            productImageUrl: productData.image === '' ? 'Image URL is required' : '',
+            productDescription: productData.description === '' ? 'Description is required' : '',
+            productPrice: productData.price === '' ? 'Price is required' : '',
+            productFreshness: !productData.freshness ? 'Freshness is required' : '', 
         };
-    
-        // Call the function to update formError
-        updateFormError();
+        setFormError(updatedFormError);
     
         if (isEmpty) {
             // Rest of your validation logic
@@ -49,6 +47,7 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
                 productImageUrl: '',
                 productDescription: '',
                 productPrice: '',
+                productFreshness: '',
             });
         }
     
@@ -81,14 +80,14 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
     }, [formError]);
     
     const clearDataProduct = () => {
-            setProductData({
-                uuid: '',
-                name: '',
-                category: '',
-                image: '',
-                description: '',
-                price: '',
-            });
+        setProductData({
+            uuid: '',
+            name: '',
+            category: '',
+            image: '',
+            description: '',
+            price: '',
+        });
     }
     // handle change input
     const handleInputChange = (e, field) => {
@@ -124,13 +123,8 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
                 const uuid = uuidv4();
         
                 const newProduct = {
-                    uuid: uuid, 
-                    name: productData.name,
-                    category: productData.category,
-                    image: productData.image,
-                    freshness: productData.freshness,
-                    description: productData.description,
-                    price: productData.price,
+                    ...productData,
+                    uuid,
                 };
         
                 addProduct(newProduct);
@@ -283,9 +277,10 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
                                         onChange={(e) => handleInputChange(e, 'freshness')}
                                     />
                                 </div>
-                                <div className="invalid-feedback d-block" data-radio="freshness">
+                                <div className="invalid-feedback d-block">
                                     {formError.productFreshness ? formError.productFreshness : ''}
                                 </div>
+
                             </div>
                         </div>
                         <div className="row">

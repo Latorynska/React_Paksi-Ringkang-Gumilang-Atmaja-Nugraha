@@ -8,6 +8,7 @@ const Layout = ({children}) => {
         { label: "Home", url: "/" },
         { label: "Create Product", url: "/create-product" },
         { label: "Create Account", url: "/create-account" },
+        { label: "Login", url: "/login" },
     ];
     const location = useLocation();
     const { pathname } = location;

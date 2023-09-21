@@ -2,15 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const TableProduct = ({ products, selectProduct, removeProduct }) => {
+const TableAccount = ({ accounts, selectAccount, removeAccount }) => {
 
   const handleUpdate = (uuid) => {
-    selectProduct(uuid);
+    selectAccount(uuid);
   };
   const handleDelete = (uuid) => {
     Swal.fire({
       title: 'Are you sure?',
-      text: 'You will not be able to recover this product!',
+      text: 'You will not be able to recover this Account!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#d33',
@@ -18,15 +18,15 @@ const TableProduct = ({ products, selectProduct, removeProduct }) => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        removeProduct(uuid);
-        Swal.fire('Deleted!', 'Your product has been deleted.', 'success');
+        removeAccount(uuid);
+        Swal.fire('Deleted!', 'one Account has been deleted.', 'success');
       }
     });
   };
   return (
     <>
       <div className="row">
-        <h1 className="text-center">List Product</h1>
+        <h1 className="text-center">List Account</h1>
       </div>
       <div className="row">
         <div className="col-12">
@@ -34,38 +34,52 @@ const TableProduct = ({ products, selectProduct, removeProduct }) => {
             <thead>
               <tr>
                 <th>UUID</th>
-                <th>Product Name</th>
-                <th>Product Category</th>
-                <th>Product Freshness</th>
-                <th>Additional Description</th>
-                <th>Product Price</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Address 2</th>
+                <th>Nationality</th>
+                <th>Language</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody id="table-body">
-              {products.map((product) => (
-                <tr key={product.uuid}>
+              {accounts.map((account) => (
+                <tr key={account.uuid}>
                   <td>
-                    <Link to={`/product-details/${product.uuid}`}>
-                      {product.uuid}
+                    <Link to={`/account-details/${account.uuid}`}>
+                      {account.uuid}
                     </Link>
                   </td>
-                  <td>{product.name}</td>
-                  <td>{product.category}</td>
-                  <td>{product.freshness}</td>
-                  <td>{product.description}</td>
-                  <td>{product.price}</td>
+                  <td>{account.firstName}</td>
+                  <td>{account.lastName}</td>
+                  <td>{account.username}</td>
+                  <td>{account.email}</td>
+                  <td>{account.gender}</td>
+                  <td>{account.address}</td>
+                  <td>{account.address2}</td>
+                  <td>{account.nationality}</td>
+                  <td>
+                    {
+                      account.languageSpoken.map((lang, index) => (
+                        index === account.languageSpoken.length - 1 ? lang : `${lang}, `
+                      ))
+                    }
+                  </td>
                   <td>
                     <div className="d-flex justify-content-between">
                       <button
                         className="btn btn-danger btn-sm"
-                        onClick={() => handleDelete(product.uuid)}
+                        onClick={() => handleDelete(account.uuid)}
                       >
                         Delete
                       </button>
                       <button
                         className="btn btn-primary btn-sm"
-                        onClick={() => handleUpdate(product.uuid)}
+                        onClick={() => handleUpdate(account.uuid)}
                       >
                         Update
                       </button>
@@ -91,4 +105,4 @@ const TableProduct = ({ products, selectProduct, removeProduct }) => {
   );
 };
 
-export default TableProduct;
+export default TableAccount;

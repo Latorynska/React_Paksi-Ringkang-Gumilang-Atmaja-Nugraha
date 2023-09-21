@@ -7,18 +7,30 @@ import CreateProduct from './pages/CreateProduct';
 import CreateAccount from './pages/CreateAccount';
 import LandingPage from './pages/LandingPage';
 import Layout from './layout/Layout';
+import { AuthProvider } from './context/AuthContext';
+import Login from './pages/Login';
+import PrivateRoute from './routes/PrivateRoute';
+import AccountDetails from './pages/AccountDetails';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
 
   return (
       <Router>
-        <Layout>
-          <Routes>
-            <Route path="/create-account" element={<CreateAccount/>} exact />
-            <Route path="/create-product" element={<CreateProduct/>} exact />
-            <Route path="/" element={<LandingPage/>} exact />
-          </Routes>
-        </Layout>
+        <AuthProvider>
+          <Layout>
+            <Routes>
+              <Route element={<PrivateRoute />}>
+                <Route path="/account-details/:uuid" element={<AccountDetails />}/>
+                <Route path="/product-details/:uuid" element={<ProductDetails />}/>
+              </Route>
+              <Route path="/create-account" element={<CreateAccount/>} exact />
+              <Route path="/create-product" element={<CreateProduct/>} exact />
+              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<LandingPage/>} exact />
+            </Routes>
+          </Layout>
+        </AuthProvider>
       </Router>
   )
 }
