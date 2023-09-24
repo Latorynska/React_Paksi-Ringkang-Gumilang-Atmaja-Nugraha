@@ -59,43 +59,62 @@ const FormProduct = ({ addProduct, updateProduct, product }) => {
     }, [product]);
 
     useEffect(() => {
+        const updatedFormError = {
+          productName: '',
+          productCategory: '',
+          productImageUrl: '',
+          productDescription: '',
+          productPrice: '',
+          productFreshness: '',
+        };
+      
         // Check if any of the fields is empty
-        const isEmpty = Object.values(productData).some(value => value === '');
+        const isEmpty = Object.values(productData).some((value) => {
+          if (value === '') {
+            return true;
+          }
+          return false;
+        });
+      
         if (isEmpty) {
-            const updatedFormError = {
-                productName: productData.name === '' ? 'Name is required' : '',
-                productCategory: productData.category === '' ? 'Category is required' : '',
-                productImageUrl: productData.image === '' ? 'Image URL is required' : '',
-                productDescription: productData.description === '' ? 'Description is required' : '',
-                productPrice: productData.price === '' ? 'Price is required' : '',
-                productFreshness: !productData.freshness ? 'Freshness is required' : '', 
-            };
-            setFormError(updatedFormError);
-        } else if (productData.name.length > 25) {
-            const errorMessage = 'product name must not exceed 25 characters!';
-            setFormError(prevErrors => ({
-                ...prevErrors,
-                productName: errorMessage,
-            }));
-            Swal.fire({ title: 'Error!', text: errorMessage, icon: 'error', timer: 3000});
+          updatedFormError.productName = productData.name === '' ? 'Name is required' : '';
+          updatedFormError.productCategory = productData.category === '' ? 'Category is required' : '';
+          updatedFormError.productImageUrl = productData.image === '' ? 'Image URL is required' : '';
+          updatedFormError.productDescription = productData.description === '' ? 'Description is required' : '';
+          updatedFormError.productPrice = productData.price === '' ? 'Price is required' : '';
+          updatedFormError.productFreshness = !productData.freshness ? 'Freshness is required' : ''; 
+        }
+      
+        // Validate product name length
+        if (productData.name.length > 25) {
+          updatedFormError.productName = 'Product name must not exceed 25 characters!';
         } else if (productData.name.length > 10) {
-            setFormError(prevErrors => ({
-                ...prevErrors,
-                productName: 'product name tidak boleh lebih dari 10 karakter!',
-            }));
+          updatedFormError.productName = 'Product name cannot exceed 10 characters!';
         }
-        else {
-            setFormError({
-                productName: '',
-                productCategory: '',
-                productImageUrl: '',
-                productDescription: '',
-                productPrice: '',
-                productFreshness: '',
-            });
+      
+        // Validate product name using regex
+        const productNameRegex = /^[A-Za-z0-9\s]*$/;
+        if (!productNameRegex.test(productData.name)) {
+          updatedFormError.productName = 'Product name can only contain letters, numbers, and spaces';
         }
+      
+        // Check if product name contains @, /, [, ], or {
+        if (/[@/[\]{}]/.test(productData.name)) {
+          updatedFormError.productName = 'Product name cannot contain @, /, [, ], or {';
+        }
+      
+        // Validate price field for numeric characters only
+        const priceRegex = /^[0-9]+$/;
+        if (!priceRegex.test(productData.price)) {
+          updatedFormError.productPrice = 'Price can only contain numeric characters';
+        }
+        // Update form error and button disabled state
+        setFormError(updatedFormError);
+      }, [productData]);
+
+      useEffect(() => {
         setButtonDisabled(!isFormValid());
-    }, [productData]);
+      }, [formError]);
 
     
     const clearDataProduct = () => {
