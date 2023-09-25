@@ -37,6 +37,7 @@ const TableProduct = ({ products, selectProduct, removeProduct }) => {
                 <th>Product Name</th>
                 <th>Product Category</th>
                 <th>Product Freshness</th>
+                <th>Product Image</th>
                 <th>Additional Description</th>
                 <th>Product Price</th>
                 <th>Action</th>
@@ -53,6 +54,7 @@ const TableProduct = ({ products, selectProduct, removeProduct }) => {
                   <td>{product.name}</td>
                   <td>{product.category}</td>
                   <td>{product.freshness}</td>
+                  <td><img src={product.image} alt={product.name} width='30%'/></td>
                   <td>{product.description}</td>
                   <td>{product.price}</td>
                   <td>
