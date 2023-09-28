@@ -1,19 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const ProductDetails = () => {
-  // Extract the uuid from the URL parameters
-  const { uuid } = useParams();
-  const [product, setProduct] = useState({});
-
-  // Fetch products data from local storage on component mount
-  useEffect(() => {
-    const storedProducts = JSON.parse(localStorage.getItem('products'));
-    if (storedProducts) {
-      const selectedProduct = storedProducts.find((product) => product.uuid === uuid);
-      setProduct(selectedProduct);
-    }
-  }, [uuid]);
+  const { state } = useLocation();
+  const product = state?.product || null;
 
   if (!product) {
     return <div>Product not found.</div>;

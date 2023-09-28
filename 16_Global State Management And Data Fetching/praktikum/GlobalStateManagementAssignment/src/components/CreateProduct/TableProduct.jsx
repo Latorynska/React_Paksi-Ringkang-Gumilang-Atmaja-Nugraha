@@ -47,7 +47,10 @@ const TableProduct = ({ products, selectProduct, removeProduct }) => {
               {products.map((product) => (
                 <tr key={product.uuid}>
                   <td>
-                    <Link to={`/product-details/${product.uuid}`}>
+                    <Link 
+                      to={`/product-details/${product.uuid}`}
+                      state={{product}}
+                    >
                       {product.uuid}
                     </Link>
                   </td>
