@@ -1,0 +1,5 @@
+Vercel :
+https://global-state-management-assignment.vercel.app/
+
+netlify :
+https://paksisdeployassignment.netlify.app/
