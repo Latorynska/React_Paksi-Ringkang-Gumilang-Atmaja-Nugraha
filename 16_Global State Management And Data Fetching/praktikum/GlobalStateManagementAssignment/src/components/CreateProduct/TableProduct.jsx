@@ -1,9 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const TableProduct = ({ products, selectProduct, removeProduct }) => {
+const TableProduct = ({ selectProduct, removeProduct }) => {
 
+  const products = useSelector(state => state.products);
   const handleUpdate = (uuid) => {
     selectProduct(uuid);
   };

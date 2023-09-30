@@ -49,7 +49,6 @@ const CreateProduct = () => {
   };
 
   const handleSelectProduct = (uuid) => {
-    // Set the selectedProduct in local state
     const selected = products.find((prod) => prod.uuid === uuid);
     setSelectedProduct(selected);
   };
@@ -65,11 +64,10 @@ const CreateProduct = () => {
         <Banner article={articles} />
         <FormProduct
           addProduct={handleAddProduct}
-          product={selectedProduct} // Use selectedProduct from local state
+          product={selectedProduct} 
           updateProduct={handleUpdateProduct}
         />
         <TableProduct
-          products={products}
           selectProduct={handleSelectProduct}
           removeProduct={handleRemoveProduct}
         />
