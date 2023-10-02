@@ -1,0 +1,12 @@
+
+.web-contact-title{
+    font-family: 'Stoke', serif;
+    background-color: #ac0000;
+}
+.input-group .form-control::placeholder {
+    color: gray !important;
+}
+.btn-signup{
+    border-radius: 0 !important;
+    background-color: #ac0000;
+}
