@@ -14,3 +14,9 @@ memiliki informasi yang diperlukan tergantung pada metode http yang digunakan se
 poin ketiga ialah representation, data yang dikirim ataupun diterima dari klien ke server atau sebaliknya akan direpresentasikan dengan data 
 bentuk representasi data yang disetujui atau diadaptasi dari kedua sistem seperti json atau xml.
 
+# API response
+dalam response sebuah API pada sederhananya akan terbagi menjadi 3 bagian utama, status line (berisi versi http, kode status http misal, 
+status 200 untuk OK, dan kemudian alasan dari status seperti OK, bad gateway, dst). kemudian bagian selanjutnya ialah bagian header,
+bagian header ini berisi informasi dari data yang diterima atau dikirimkan seperti ada content-type misal 'application/json' untuk json dan 
+text/xml untuk xml, kemudian ada content-length, dan date. kemudian bagian terakhir adalah bagian body dimana bagian ini berisi data aktual 
+atau data asli yang diterima ataupun dikirimkan oleh client-server, jika json maka akan berisi object JSON.
