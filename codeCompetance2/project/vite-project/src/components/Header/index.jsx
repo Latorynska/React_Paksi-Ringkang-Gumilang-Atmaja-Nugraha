@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     const links = [
         {
-            url: './home',
+            url: './',
             label: 'Home',
         },
         {
@@ -45,8 +45,8 @@ const Header = () => {
                         <ul className="navbar-nav">
                         {
                             links.map((data, key) =>(
-                                <li className='nav-item'>
-                                    <Link key={key} to={data.url} className='nav-link'>
+                                <li className='nav-item' key={key}>
+                                    <Link to={data.url} className='nav-link'>
                                         {data.label}
                                     </Link>
                                 </li>
