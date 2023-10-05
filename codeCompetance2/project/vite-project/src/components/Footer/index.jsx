@@ -61,7 +61,7 @@ const Footer = () => {
                         </div>
                         <div className="col-6">
                         <h5>Our Address?</h5>
-                        <div className="container bg-secondary">
+                        <div className="container">
                             <ul className="list-unstyled">
                             <li>Jl. Raya Sukabumi</li>
                             <li>Kecamatan Cianjur</li>
