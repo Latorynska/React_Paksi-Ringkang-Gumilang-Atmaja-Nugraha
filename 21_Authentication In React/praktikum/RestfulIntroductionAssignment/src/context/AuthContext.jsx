@@ -15,6 +15,7 @@ export function AuthProvider({ children }){
     
     const login = (email, password) => {
         const apiUrl = "https://6521213fa4199548356cd527.mockapi.io/users";
+      
         // gunakan email 'admin@gmail.com' dan password admin123 agar bisa login, karena data di mockapi cuma ada itu
         return axios
           .get(apiUrl)
