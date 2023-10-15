@@ -21,6 +21,7 @@ export const aiSlice = createSlice({
         .addCase(generateText.fulfilled, (state, action) => {
             state.loading = false;
             state.error = '';
+            console.log(action.payload);
             state.message = action.payload.choices[0].text;
         })
         .addCase(generateText.rejected, (state, action) => {

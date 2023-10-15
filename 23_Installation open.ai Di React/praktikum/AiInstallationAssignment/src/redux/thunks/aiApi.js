@@ -11,6 +11,6 @@ export const generateText = createAsyncThunk('ai/generateText', async(prompt) =>
     return await openAi.completions.create({
         prompt: prompt,
         model: 'text-davinci-003',
-        max_tokens: 50,
+        max_tokens: 200,
     })
 });
